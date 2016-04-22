@@ -1,0 +1,81 @@
+<html ng-app="app">
+ <head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js"></script>
+ 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  
+  <style>
+    .demo-card-wide.mdl-card {
+      width: 512px;
+    }
+    .demo-card-wide > .mdl-card__title {
+      color: #fff;
+      height: 176px;
+      background: url('../assets/demos/welcome_card.jpg') center / cover;
+    }
+    .demo-card-wide > .mdl-card__menu {
+      color: #fff;
+    }
+  </style>
+
+ </head>
+ <body ng-controller="MainController">
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="width:100%;">
+      <div style="height:15%;background-color:rgb(255,64,129);color:white;padding-left:20px;
+      padding-top:20px;position:relative">
+        <span style="position:absolute;bottom:10px"><h3>Particle Remote Control</h3></span>
+      </div>
+      <div class="mdl-card__supporting-text" style="width:90%;height:90%">
+        <div id="form-field-area">
+          <div class="form-description">
+            Adjust the properties below to change how the particles behave
+          </div>
+          <div class="form-field-container">
+            <label>time_</label>
+            <input ng-model="particleConfig.lifespan" type="number" placeholder="enter a username...">
+          </div>
+          <div class="form-field-container">
+            <label>min_x</label>
+            <input ng-model="particleConfig.min_x" type="number" placeholder="enter a username...">
+          </div>
+          <div class="form-field-container">
+            <label>max_x</label>
+            <input ng-model="particleConfig.max_x" type="number" placeholder="enter a username...">
+          </div>
+          <div class="form-field-container">
+            <label>min_y</label>
+            <input ng-model="particleConfig.min_y" type="number" placeholder="enter a username...">
+          </div>
+          <div class="form-field-container">
+            <label>max_y</label>
+            <input ng-model="particleConfig.max_y" type="number" placeholder="enter a username...">
+          </div>
+          <div class="form-field-container">
+            <label>p_size</label>
+            <input ng-model="particleConfig.ellipse_size" type="number" placeholder="enter a username...">
+          </div>
+          <div class="form-field-container">
+            <label>speed</label>
+            <input ng-model="particleConfig.speed" type="number" placeholder="enter a username...">
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="./scripts/mobile_app.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-76438622-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+ </body>
+</html>

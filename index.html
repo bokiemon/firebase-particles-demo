@@ -1,0 +1,120 @@
+<html ng-app="app">
+ <head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js"></script>
+ 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+ </head>
+
+ <body ng-controller="MainController" ng-init="init()">
+  
+  <div class="android-drawer mdl-layout__drawer {{drawerVisible}}" aria-hidden="true">
+      <span class="mdl-layout-title">
+        <span class="mdl-layout-title-text">Particle Properties</span>
+      </span>
+      <div id="form-field-area">
+        <div class="form-description">
+          Adjust the properties below to change how the particles behave
+        </div>
+        <div class="form-field-container">
+          <label>time_</label>
+          <input ng-model="particleConfig.lifespan" type="number" placeholder="enter a username...">
+        </div>
+        <div class="form-field-container">
+          <label>min_x</label>
+          <input ng-model="particleConfig.min_x" type="number" placeholder="enter a username...">
+        </div>
+        <div class="form-field-container">
+          <label>max_x</label>
+          <input ng-model="particleConfig.max_x" type="number" placeholder="enter a username...">
+        </div>
+        <div class="form-field-container">
+          <label>min_y</label>
+          <input ng-model="particleConfig.min_y" type="number" placeholder="enter a username...">
+        </div>
+        <div class="form-field-container">
+          <label>max_y</label>
+          <input ng-model="particleConfig.max_y" type="number" placeholder="enter a username...">
+        </div>
+        <div class="form-field-container">
+          <label>p_size</label>
+          <input ng-model="particleConfig.ellipse_size" type="number" placeholder="enter a username...">
+        </div>
+        <div class="form-field-container">
+          <label>speed</label>
+          <input ng-model="particleConfig.speed" type="number" placeholder="enter a username...">
+        </div>
+      </div>
+    </div>
+
+   <div id="header">
+      <div aria-expanded="false" role="button" tabindex="0" class="drawer-button"
+        ng-click="onDrawerButtonClick()">
+        <i class="material-icons">menu</i>
+      </div>
+    <img src='./imgs/angular_logo.png' style="width:35px"/>
+    <img src='./imgs/firebase_logo.png' style="width:100px"/>
+    <span class="logo-font">Having a little fun with Firebase + Angular</span>
+   </div>
+   <div id="body"></div>
+
+   <div id="footer">Built with <a href="https://www.firebase.com/docs/web/libraries/angular/" target="_blank">AngularFire</a>, <a href="https://angularjs.org/" target="_blank">AngularJS</a>, <a href="https://www.firebase.com/" target="_blank">Firebase</a>, <a href="https://www.getmdl.io/">Material Lite</a> and <a href="http://p5js.org/" target="_blank">P5.js</a></div>
+
+   <!-- FAB -->
+   <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="fab" data-upgraded=",MaterialButton,MaterialRipple">
+      <i class="material-icons" role="presentation">add</i>
+      <span class="visuallyhidden">Add</span>
+    <span class="mdl-button__ripple-container"><span class="mdl-ripple is-animating" style="width: 160.392px; height: 160.392px; transform: translate(-50%, -50%) translate(25px, 28px);"></span></span>
+   </button>
+
+   <!-- view source button -->
+   <a href="https://github.com/google/material-design-lite/blob/master/templates/text-only/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" data-upgraded=",MaterialButton,MaterialRipple">View Source<span class="mdl-button__ripple-container"><span class="mdl-ripple is-animating" style="width: 255.652px; height: 255.652px; transform: translate(-50%, -50%) translate(30px, 15px);"></span></span></a>
+
+   <!-- info card -->
+   <div class="demo-card-wide mdl-card mdl-shadow--2dp" 
+    style="position: absolute;top:180px;right:40px;width:450px">
+      <div style="height:15%;background-color:rgb(255,64,129);color:white;padding-left:20px;
+      padding-top:20px;position:relative">
+        <span><h3>Firebase Everywhere</h3></span>
+      </div>
+      <div class="mdl-card__supporting-text" style="width:90%;">
+        <div id="form-field-area">
+          <div class="form-description" style="overflow:auto;">
+            <div style="margin-bottom:10px">
+              Firebase allows apps to synchronize data across different platforms in real time.
+            </div>
+            <div style="margin-bottom:10px">
+              Whatever your app may be, there's always a creative way to work with Firebase.
+            </div> 
+            <div style="margin-bottom:10px">
+              Launch <a href="https://goo.gl/BCH43g" target="_blank">https://goo.gl/BCH43g</a> on your mobile phone and start remotely controlling how the particles will look like. 
+            </div>
+            <div>
+              Have fun!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+   <div class="mdl-layout__obfuscator {{drawerVisible}}" ng-click="drawerVisible = ''"></div>
+  <script src="./scripts/app.js"></script>
+  <script src="./scripts/particles.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-76438622-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+    
+ </body>
+</html>
