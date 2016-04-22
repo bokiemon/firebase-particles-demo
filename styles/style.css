@@ -1,0 +1,101 @@
+html {
+	font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    color: #767777;
+}
+
+body {
+	background-color: #f3f3f3;
+	display: flex;
+	flex-direction: column;
+}
+
+.mdl-layout__obfuscator {
+	cursor: pointer;
+}
+
+.android-drawer {
+	border-right-width: 0px;
+}
+
+.android-drawer .mdl-layout-title {
+    position: relative;
+    background: #E91E63;
+    height: 160px;
+    padding-left: 10px;
+}
+
+.android-drawer .mdl-layout-title-text {
+	position: absolute;
+	bottom: 10px;
+	color: white;
+	font-size: 20px;
+}
+
+.drawer-button {
+	cursor: pointer;
+	margin: 10px 12px;
+	z-index: 4;
+}
+
+.form-description {
+	margin-bottom: 50px;
+	margin-top: 10px;
+	font-size: 15px;
+	text-align: left;
+}
+
+.form-field-container {
+	display: flex;
+}
+
+.form-field-container label, input {
+	flex-grow: 1;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+
+.logo-font {
+	font-weight: 500;
+	font-size: 20px;
+}
+
+#view-source {
+    position: fixed;
+    display: block;
+    right: 0;
+    bottom: 50;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    z-index: 900;
+}
+
+#fab {
+	position: absolute;
+    right: 55px;
+    top: 50px;
+    z-index: 999;
+}
+
+#form-field-area {
+	padding: 10px;
+}
+
+#header {
+	padding:15px;
+	display: flex;
+	align-items: center;
+	background-color: white;
+}
+
+#header > img {
+	margin-right: 10px;
+}
+
+#body {
+	flex-grow: 1;
+}
+
+#footer {
+	background-color: white;
+	padding: 20px;
+}
